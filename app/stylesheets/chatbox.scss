@@ -1,0 +1,323 @@
+// MIXINS *****************************************************************************/
+
+@mixin round{ 
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px; /* future proofing */
+-khtml-border-radius: 10px; /* for old Konqueror browsers */
+}
+
+@mixin vinyl-font{
+  font-family: "Vinyl", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+@mixin dark-shadow{
+  text-shadow: #333 0px 1px 0px;
+}
+
+@mixin shadow{
+  text-shadow: #fff 0px 1px 0px;
+}
+
+@mixin round-3{ 
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px; /* future proofing */
+-khtml-border-radius: 3px; /* for old Konqueror browsers */
+}
+
+.chat-container {
+  position: absolute;
+  bottom: -30px;
+  left: -34px;
+  z-index: 9999999999999999999;
+  display: none; }
+
+// CHATBOX *****************************************************************************/
+
+.chatbox {
+  height: 0px;
+  width: 0px;
+  position: relative;
+  
+  .close {
+    background-image: url('../images/chat_close.png');
+    width: 16px;
+    height: 21px;
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    cursor: pointer; }
+  .slidy {
+    -webkit-transform: rotate(0deg);
+    background: rgba(243, 239, 233, 0.9);
+    width: 310px;
+    max-height: 300px;
+    display: none;
+    margin: auto;
+    position: absolute;
+    bottom: 110px;
+    left: 21px;
+    padding: 10px;
+    border-radius: 10px 10px 1px 0px;
+    -moz-border-radius: 10px 10px 1px 0px;
+    -webkit-border-bottom-right-radius: 1px;
+    -webkit-border-bottom-left-radius: 0px; } }
+
+.slidy .header h1 {
+  font-family: 'vino';
+  color: #444444;
+  font-size: 50px;
+  margin: 0 40px 0 0;
+  padding: 0;
+  float: right;
+  text-align: right;
+  @include shadow; }
+
+.header .status {
+  width: 200px;
+  float: right; }
+
+.status {
+  
+  ul{
+    list-style: none;
+  	margin: 10px;
+  	padding: 2px;
+  	text-indent: 10px;
+	}
+	
+	li{
+	  float:left;
+	}
+  
+  ul.h3 {
+    font-size: 12px;
+    color: #bc6f0f;
+    width: 50%;
+    display: inline;
+    padding: 0px 3px 0px 3px;
+    @include shadow; }
+  p {
+    font-size: 10px;
+    color: #444;
+    width: 50%;
+    display: inline; } }
+
+.slidy {
+  h1#slidy-name{
+    font-size: 25px;
+    float:right;
+    padding-right: 10px;
+    text-align:left;
+    text-transform: uppercase;
+    width: 78%;
+    white-space: nowrap;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+  }
+  
+  .im-roller {
+    background: rgba(242,239,233,0.8);
+    width: 95%;
+    height: 150px;
+    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 5px 0 5px 5px; 
+    margin-top: 55px;
+    }
+  .im {
+    width: 100%;
+    float: left;
+    padding: 10px 0;
+    border-bottom: solid 1px #bbb; } }
+
+.im h2 {
+  @include vinyl-font;
+  float: left;
+  padding: 0;
+  font-size: 14px;
+  line-height: 12px;
+  text-align: left;
+  display: block;
+  margin: 10px 10px 10px 0px;
+  padding: 3px;
+  @include round-3;
+  }
+
+.me h2 {
+  background: #e2ba55;
+  color: red !important;
+  @include shadow;}
+
+.them h2 {
+  background: #e2ba55;
+  color: white !important;
+  @include dark-shadow;}
+
+.im p {
+  float: left;
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  line-height: 14px;
+  text-align: left;
+  color: #333; }
+
+.chatbox .input-container {
+  background: url('../images/chat_input.png') no-repeat;
+  width: 360px;
+  height: 90px;
+  position: absolute;
+  bottom: 30px;
+  left: 11px;
+  display: none; }
+
+.header-icon {
+  width: 50px;
+  height: 50px;
+  float: left; }
+
+.pointy-icon {
+  width: 50px;
+  height: 50px;
+  margin-left: 9px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 50px;
+  left: 138px; 
+  
+  .new-message-indicator{
+    background:url('../images/new_message.png') no-repeat;
+    width: 24px;
+    height: 25px;
+    position: relative;
+    top:-115px;
+    right: -40px;
+    display:none;
+  }
+  
+}
+
+.icon {
+  border: #9e9e9e 1px solid;
+  border-radius: 2px 2px 2px 2px;
+  -moz-border-radius: 2px 2px 2px 2px;
+  -webkit-border-radius: 2px;
+  background: url('../images/user_icon.jpg'); }
+
+.pointy-icon .pointy {
+  background: url('../images/chat_icon.png') no-repeat 4px 55px;
+  width: 56px;
+  height: 83px; 
+  margin-top: -5px;
+  margin-left: -5px;}
+
+.input-container {
+  .input {
+    position: absolute;
+    height: 20px;
+    width: 178px;
+    left: 26px;
+    top: 22px;
+    background: transparent;
+    border: none;
+    padding: 2px;
+    color: #333;
+    font-size: 12px; }
+    
+  .send-button {
+    background: url('../images/chat_send.png');
+    width: 118px;
+    height: 47px;
+    position: absolute;
+    top: 9px;
+    left: 221px;
+    cursor: pointer; } }
+
+.chatbox textarea:focus, input:focus {
+  outline: none; }
+
+
+
+// SLIDER *****************************************************************************/
+
+#radius-slider {
+  background-image: url('../images/radius_slider_bg.png');
+  width: 40px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height:100%;
+  display: none;
+
+  .slider-button {
+    background: no-repeat url('../images/radius_slider.png');
+    width: 40px;
+    height: 53px;
+    margin-top: 16px;
+    position: relative;
+    top: 400px;
+    cursor: pointer; }
+  #slider-container {
+    height: 100%; }
+  .radius-size {
+    width: 60px;
+    height: 30px;
+    position: relative;
+    top: 10px;
+    left: -10px;
+    text-align: center; } }
+
+.radius-size {
+  position: absolute;
+  bottom: 30px;
+  right: 70px;
+  text-align: center;
+  display:none;
+      
+    p {
+      font-size: 9px;
+      @include shadow; }
+    
+    span#sirkel{
+      @include vinyl-font;
+    }
+  }
+
+// ZOOM *****************************************************************************/
+
+#zoom-buttons {
+  width: 38px;
+  height: 79px;
+  position: absolute;
+  top: 5px;
+  right: 50px;
+  .zoom-in {
+    background: no-repeat url('../images/zoom_in.png');
+    width: 38px;
+    height: 42px; }
+  .zoom-out {
+    background: no-repeat url('../images/zoom_out.png');
+    width: 38px;
+    height: 44px;
+    margin-top: -7px; } }
+
+// LOCATE *****************/
+
+#locate-button {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 97px;
+  right: 53px;
+  background: no-repeat url('../images/locator_button_inactive.gif');}
+  
+#revert-button {
+  width: 50px;
+  height: 56px;
+  position: absolute;
+  top: 15px;
+  right: 110px;
+  background: no-repeat url('../images/revert_button_inactive.png');}

@@ -1,0 +1,46 @@
+!!! 5
+
+:plain
+  <!--
+    _____ _      _        _ 
+   / ____(_)    | |      | |
+  | (___  _ _ __| | _____| |
+   \___ \| | '__| |/ / _ \ |
+   ____) | | |  |   <  __/ |
+  |_____/|_|_|  |_|\_\___|_|
+  Only your closest friends.
+  -->
+
+%html{ :lang => "en"}
+  %head
+    %title= site_title + " | " + @page_title
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    =csrf_meta_tag
+    %meta{ :content => "", :name => "description" }
+    %meta{ :content => "", :name => "author" }
+    %meta{ :content => "3 days", :name => "revisit-after" }
+    %meta{ :name => "viewport", :content=> "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" }
+    
+    %link{ :href => "http://creativecommons.org/licenses/by/3.0/", :rel => "license", :title => "Creative Commons Attribution 3.0 Unported License" }
+    %link{ :href => "/feed", :rel => "alternate", :title => "Atom", :type => "application/atom+xml" }    
+    
+    = stylesheet_link_tag 'screen.css?2.0', :media => 'screen, projection'
+    = stylesheet_link_tag 'print.css?2.0', :media => 'print'
+    = stylesheet_link_tag 'master.css?2.0', :media => 'screen, projection'
+    :javascript
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-5991707-4']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    
+    // Javascripts
+    = javascript_include_tag 'jquery.min.js'
+    
+    /[if lt IE 8] = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
+    
+    = yield

@@ -1,0 +1,343 @@
+/* line 29, ../../app/stylesheets/chatbox.scss */
+.chat-container {
+  position: absolute;
+  bottom: -30px;
+  left: -34px;
+  z-index: 9999999999999999999;
+  display: none;
+}
+
+/* line 38, ../../app/stylesheets/chatbox.scss */
+.chatbox {
+  height: 0px;
+  width: 0px;
+  position: relative;
+}
+/* line 43, ../../app/stylesheets/chatbox.scss */
+.chatbox .close {
+  background-image: url("../images/chat_close.png");
+  width: 16px;
+  height: 21px;
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  cursor: pointer;
+}
+/* line 51, ../../app/stylesheets/chatbox.scss */
+.chatbox .slidy {
+  -webkit-transform: rotate(0deg);
+  background: rgba(243, 239, 233, 0.9);
+  width: 310px;
+  max-height: 300px;
+  display: none;
+  margin: auto;
+  position: absolute;
+  bottom: 110px;
+  left: 21px;
+  padding: 10px;
+  border-radius: 10px 10px 1px 0px;
+  -moz-border-radius: 10px 10px 1px 0px;
+  -webkit-border-bottom-right-radius: 1px;
+  -webkit-border-bottom-left-radius: 0px;
+}
+
+/* line 67, ../../app/stylesheets/chatbox.scss */
+.slidy .header h1 {
+  font-family: 'vino';
+  color: #444444;
+  font-size: 50px;
+  margin: 0 40px 0 0;
+  padding: 0;
+  float: right;
+  text-align: right;
+  text-shadow: #fff 0px 1px 0px;
+}
+
+/* line 77, ../../app/stylesheets/chatbox.scss */
+.header .status {
+  width: 200px;
+  float: right;
+}
+
+/* line 83, ../../app/stylesheets/chatbox.scss */
+.status ul {
+  list-style: none;
+  margin: 10px;
+  padding: 2px;
+  text-indent: 10px;
+}
+/* line 90, ../../app/stylesheets/chatbox.scss */
+.status li {
+  float: left;
+}
+/* line 94, ../../app/stylesheets/chatbox.scss */
+.status ul.h3 {
+  font-size: 12px;
+  color: #bc6f0f;
+  width: 50%;
+  display: inline;
+  padding: 0px 3px 0px 3px;
+  text-shadow: #fff 0px 1px 0px;
+}
+/* line 101, ../../app/stylesheets/chatbox.scss */
+.status p {
+  font-size: 10px;
+  color: #444;
+  width: 50%;
+  display: inline;
+}
+
+/* line 108, ../../app/stylesheets/chatbox.scss */
+.slidy h1#slidy-name {
+  font-size: 25px;
+  float: right;
+  padding-right: 10px;
+  text-align: left;
+  text-transform: uppercase;
+  width: 78%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* line 120, ../../app/stylesheets/chatbox.scss */
+.slidy .im-roller {
+  background: rgba(242, 239, 233, 0.8);
+  width: 95%;
+  height: 150px;
+  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 5px 0 5px 5px;
+  margin-top: 55px;
+}
+/* line 130, ../../app/stylesheets/chatbox.scss */
+.slidy .im {
+  width: 100%;
+  float: left;
+  padding: 10px 0;
+  border-bottom: solid 1px #bbb;
+}
+
+/* line 136, ../../app/stylesheets/chatbox.scss */
+.im h2 {
+  font-family: "Vinyl", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+  float: left;
+  padding: 0;
+  font-size: 14px;
+  line-height: 12px;
+  text-align: left;
+  display: block;
+  margin: 10px 10px 10px 0px;
+  padding: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  /* future proofing */
+  -khtml-border-radius: 3px;
+  /* for old Konqueror browsers */
+}
+
+/* line 149, ../../app/stylesheets/chatbox.scss */
+.me h2 {
+  background: #e2ba55;
+  color: red !important;
+  text-shadow: #fff 0px 1px 0px;
+}
+
+/* line 154, ../../app/stylesheets/chatbox.scss */
+.them h2 {
+  background: #e2ba55;
+  color: white !important;
+  text-shadow: #333 0px 1px 0px;
+}
+
+/* line 159, ../../app/stylesheets/chatbox.scss */
+.im p {
+  float: left;
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  line-height: 14px;
+  text-align: left;
+  color: #333;
+}
+
+/* line 168, ../../app/stylesheets/chatbox.scss */
+.chatbox .input-container {
+  background: url("../images/chat_input.png") no-repeat;
+  width: 360px;
+  height: 90px;
+  position: absolute;
+  bottom: 30px;
+  left: 11px;
+  display: none;
+}
+
+/* line 177, ../../app/stylesheets/chatbox.scss */
+.header-icon {
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+
+/* line 182, ../../app/stylesheets/chatbox.scss */
+.pointy-icon {
+  width: 50px;
+  height: 50px;
+  margin-left: 9px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 50px;
+  left: 138px;
+}
+/* line 191, ../../app/stylesheets/chatbox.scss */
+.pointy-icon .new-message-indicator {
+  background: url("../images/new_message.png") no-repeat;
+  width: 24px;
+  height: 25px;
+  position: relative;
+  top: -115px;
+  right: -40px;
+  display: none;
+}
+
+/* line 203, ../../app/stylesheets/chatbox.scss */
+.icon {
+  border: #9e9e9e 1px solid;
+  border-radius: 2px 2px 2px 2px;
+  -moz-border-radius: 2px 2px 2px 2px;
+  -webkit-border-radius: 2px;
+  background: url("../images/user_icon.jpg");
+}
+
+/* line 210, ../../app/stylesheets/chatbox.scss */
+.pointy-icon .pointy {
+  background: url("../images/chat_icon.png") no-repeat 4px 55px;
+  width: 56px;
+  height: 83px;
+  margin-top: -5px;
+  margin-left: -5px;
+}
+
+/* line 218, ../../app/stylesheets/chatbox.scss */
+.input-container .input {
+  position: absolute;
+  height: 20px;
+  width: 178px;
+  left: 26px;
+  top: 22px;
+  background: transparent;
+  border: none;
+  padding: 2px;
+  color: #333;
+  font-size: 12px;
+}
+/* line 230, ../../app/stylesheets/chatbox.scss */
+.input-container .send-button {
+  background: url("../images/chat_send.png");
+  width: 118px;
+  height: 47px;
+  position: absolute;
+  top: 9px;
+  left: 221px;
+  cursor: pointer;
+}
+
+/* line 239, ../../app/stylesheets/chatbox.scss */
+.chatbox textarea:focus, input:focus {
+  outline: none;
+}
+
+/* line 246, ../../app/stylesheets/chatbox.scss */
+#radius-slider {
+  background-image: url("../images/radius_slider_bg.png");
+  width: 40px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 100%;
+  display: none;
+}
+/* line 255, ../../app/stylesheets/chatbox.scss */
+#radius-slider .slider-button {
+  background: no-repeat url("../images/radius_slider.png");
+  width: 40px;
+  height: 53px;
+  margin-top: 16px;
+  position: relative;
+  top: 400px;
+  cursor: pointer;
+}
+/* line 263, ../../app/stylesheets/chatbox.scss */
+#radius-slider #slider-container {
+  height: 100%;
+}
+/* line 265, ../../app/stylesheets/chatbox.scss */
+#radius-slider .radius-size {
+  width: 60px;
+  height: 30px;
+  position: relative;
+  top: 10px;
+  left: -10px;
+  text-align: center;
+}
+
+/* line 273, ../../app/stylesheets/chatbox.scss */
+.radius-size {
+  position: absolute;
+  bottom: 30px;
+  right: 70px;
+  text-align: center;
+  display: none;
+}
+/* line 280, ../../app/stylesheets/chatbox.scss */
+.radius-size p {
+  font-size: 9px;
+  text-shadow: #fff 0px 1px 0px;
+}
+/* line 284, ../../app/stylesheets/chatbox.scss */
+.radius-size span#sirkel {
+  font-family: "Vinyl", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+/* line 291, ../../app/stylesheets/chatbox.scss */
+#zoom-buttons {
+  width: 38px;
+  height: 79px;
+  position: absolute;
+  top: 5px;
+  right: 50px;
+}
+/* line 297, ../../app/stylesheets/chatbox.scss */
+#zoom-buttons .zoom-in {
+  background: no-repeat url("../images/zoom_in.png");
+  width: 38px;
+  height: 42px;
+}
+/* line 301, ../../app/stylesheets/chatbox.scss */
+#zoom-buttons .zoom-out {
+  background: no-repeat url("../images/zoom_out.png");
+  width: 38px;
+  height: 44px;
+  margin-top: -7px;
+}
+
+/* line 309, ../../app/stylesheets/chatbox.scss */
+#locate-button {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 97px;
+  right: 53px;
+  background: no-repeat url("../images/locator_button_inactive.gif");
+}
+
+/* line 317, ../../app/stylesheets/chatbox.scss */
+#revert-button {
+  width: 50px;
+  height: 56px;
+  position: absolute;
+  top: 15px;
+  right: 110px;
+  background: no-repeat url("../images/revert_button_inactive.png");
+}

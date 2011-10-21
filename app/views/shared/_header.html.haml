@@ -1,0 +1,17 @@
+%header
+  %p#contact= raw "#{link_to "Contact", '#'}"
+  %p#about= raw "#{link_to "About Sirkel", '#'}"
+  
+  #contact-div
+    %h3 Contact
+    %p= raw "Drop #{mail_to "brian@gnzlz.com", 'a line.'}"
+    
+  #about-div
+    %h3 About Sirkel
+    %p= raw "#{link_to "Sirkel", 'http://en.wiktionary.org/wiki/sirkel'} is an app entered into VMWare's Summer '11 Flings Contest by interns Brian Gonzalez and Rahul Mathew."
+    %p= raw "Sirkel is built on #{link_to "VMWare's Cloud ☁ Foundry Service", 'http://www.cloudfoundry.com/', :target => '_blank'}, 
+        powered by #{link_to "Pusher", 'http://pusher.com', :target => '_blank'}, with the help of the #{link_to "Google Maps v3 API", 'http://code.google.com/apis/maps/index.html', :target => '_blank'}"
+    %p Sirkel has already been used is over 15 countries ✯.
+    %p= raw "Please use Sirkel in an HTML5 ready browser such as #{link_to "Chrome.", 'http://google.com/chrome', :target => '_blank'}"
+    %p Sirkel took home VMware's Flings '11 Intern Contest for best app -- woot! 
+    %img{:src => '/images/vmware_logo.png', :alt => "VMWare Logo", :style => 'margin:10px'}

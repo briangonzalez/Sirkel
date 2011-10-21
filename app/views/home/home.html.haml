@@ -1,0 +1,34 @@
+= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js'
+= javascript_include_tag 'home.script.js'
+
+%body.bp.two-col.login
+  
+  #container    
+    =render :partial => "shared/header"
+    
+    %h2 Sirkel
+    - if(@just_logged_out)
+      %p.tagline= raw "But you're still logged in to #{link_to "Facebook", 'http://facebook.com', :target => 'blank'} &#9786"
+    -elsif(@please_sign_in)
+      %p.tagline Please sign in below to use Sirkel.
+    -elsif(params[:geo_error])
+      %p.tagline →  After 60 seconds, we weren't able to determine your location ☹ 
+      %p.tagline You may have clicked "Don't Allow This Site to Track My Location"
+      %p.tagline= raw "To fix this issue, #{link_to "please reset", 'http://news.cnet.com/8301-30685_3-20003731-264.html', :target => 'blank'} your browser settings."
+    - else
+      %p.tagline= @tag_line
+    
+    %p.watch= raw "New to Sirkel? #{link_to "Watch", '#'} our getting started tutorial."
+    .sirkel-tut
+      :preserve
+        <iframe width="425" height="349" src="http://www.youtube.com/embed/DnNjESl5KHs?hl=en&fs=1" frameborder="0" allowfullscreen></iframe>
+    
+    #login-buttons
+      %h3.loggy LOGIN VIA FACEBOOK
+      #fb-login 
+      %p 
+        We authenticate you and use your image & name from Facebook. 
+        %br We'll never post to your wall or store your data.
+      /#twitter-login
+    
+    = render :partial => "shared/footer"

@@ -1,0 +1,506 @@
+@mixin vinyl{
+  font-family: "Vinyl", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+
+@mixin dark-shadow{
+  text-shadow: #333 0px 1px 0px;
+}
+
+@mixin shadow{
+  text-shadow: #fff 0px 1px 0px;
+}
+
+
+@mixin round{ 
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+border-radius: 10px; /* future proofing */
+-khtml-border-radius: 10px; /* for old Konqueror browsers */
+}
+
+@mixin round-bottom{ 
+-moz-border-radius: 0px 0px 10px 10px ;
+-webkit-border-radius: 0px 0px 10px 10px ;
+border-radius: 0px 0px 10px 10px ; /* future proofing */
+-khtml-border-radius: 0px 0px 10px 10px ; /* for old Konqueror browsers */
+}
+
+@mixin sirkel-box{
+  -moz-box-shadow: 1px 1px 0px #333;
+  -webkit-box-shadow: 1px 1px 0px #333;
+  box-shadow: 1px 1px 0px #333;
+}
+
+
+@mixin sirkel-box-inset{
+  -moz-box-shadow: inset 1px 1px 0px #ccc;
+  -webkit-box-shadow: inset 1px 1px 0px #ccc;
+  box-shadow: inset 1px 1px 0px #ccc;
+}
+
+// This import applies a global reset to any page that imports this stylesheet.
+@import "blueprint/reset";
+
+// To configure blueprint, edit the partials/base.sass file.
+@import "partials/base";
+
+// Import all the default blueprint modules so that we can access their mixins.
+@import "blueprint";
+
+// Import the non-default scaffolding module.
+@import "blueprint/scaffolding";
+
+// To generate css equivalent to the blueprint css but with your
+// configuration applied, uncomment:
+// @include blueprint
+
+// If you are doing a lot of stylesheet concatenation, it is suggested
+// that you scope your blueprint styles, so that you can better control
+// what pages use blueprint when stylesheets are concatenated together.
+body.bp {
+  //@include blueprint-typography(true);
+  @include blueprint-utilities;
+  @include blueprint-debug;
+  @include blueprint-interaction;
+  // Remove the scaffolding when you're ready to start doing visual design.
+  // Or leave it in if you're happy with how blueprint looks out-of-the-box
+}
+
+form.bp {
+  @include blueprint-form;
+  // You'll probably want to remove the scaffolding once you start styling your site.
+  @include blueprint-scaffolding; }
+
+// Page layout can be done using mixins applied to your semantic classes and IDs:
+body.two-col {
+  
+  
+  #container {
+    @include container;
+    text-align: center;}
+    
+  #header, #footer { @include column($blueprint-grid-columns); }
+  
+  #sidebar {
+  
+    // One third of the grid columns, rounding down. With 24 cols, this is 8.
+    $sidebar-columns: floor($blueprint-grid-columns / 3);
+    @include column($sidebar-columns); }
+  
+  #content {
+    // Two thirds of the grid columns, rounding up.
+    // With 24 cols, this is 16.
+    $content-columns: ceil(2 * $blueprint-grid-columns / 3);
+    // true means it's the last column in the row
+    @include column($content-columns, true); } 
+}
+
+
+// -------------------------------------------------------
+// UNIVERSAL
+// -------------------------------------------------------
+
+p {
+  font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+  color: #333;
+  font-weight: lighter;
+  font-size: 14px;
+  @include shadow;
+}
+
+p {
+  a:link, a:visited, a:active{
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid  #ffb92e;
+  }
+  a:hover{
+    border-bottom: none;
+  }
+}
+
+
+// -------------------------------------------------------
+// LOGIN PAGE
+// -------------------------------------------------------
+
+@import "compass/css3";
+@include font-face("Vinyl", font-files("vino-webfont.ttf", truetype, "vino-webfont.woff", woff));
+
+body.login{
+  background: url('../images/login_bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
+  
+  footer{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+  }
+  
+  header{ 
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    height: 100px;
+    
+    p#about, p#contact{
+      @include sirkel-box-inset;
+      @include round;
+      background: rgba(255, 255, 255, .5);
+      font-size: 12px;
+      padding: 5px;
+      width: 80px;
+      display: inline;
+      margin: 0 2px;
+      float:right;
+    }
+    
+    #contact-div{
+      @include sirkel-box-inset;
+      @include round;
+      position: relative;
+      width: 150px;
+      height: 100px;
+      top:30px;
+      right: 0px;
+      background: rgba(255, 255, 255, .9);
+      padding: 5px;
+      display:none;
+    }
+    
+    #about-div{
+      @include sirkel-box-inset;
+      @include round;
+      position: relative;
+      width: 150px;
+      top:30px;
+      right: 0px;
+      background: rgba(255, 255, 255, .9);
+      padding: 5px;
+      display:none;
+      margin:10px;
+      
+      p{
+        margin: 15px;
+        text-align:left;
+        line-height:18px;
+        font-size: 12px;
+      }
+      
+    }
+    
+  }
+  
+  p.tagline{
+    margin-top: -50px;
+    margin-bottom: 50px;
+    text-align: right;
+    padding-right: 245px;
+  }
+    
+  h2{
+    color: #ffb92e;
+    text-shadow:  #fcf46a 1px 0px 0px, #7b5e24 3px 2px 0px, rgba(90, 90, 90, .2) 10px 10px 20px;
+    margin-top: 30px; 
+    @include vinyl;
+    font-size: 250px;
+  }
+  h2:hover{
+    color: #f8c000;
+  }
+  
+  h3{
+    font-size: 20px;
+    margin: 10px;
+    @include vinyl;
+    @include shadow;
+  }
+  
+  .sirkel-tut{
+    background: white !important;
+    width: 425px;
+    height: 350px;
+    padding: 10px;
+    margin: 0 auto;
+    overflow:hidden;
+    display:none;
+    @include round;
+    @include box-shadow;
+  }
+  
+  p.watch{
+    background: white;
+    padding:5px;
+    @include round;
+    width: 420px;
+    margin: 10px auto;
+    font-size: 14px;
+    @include sirkel-box;
+  }
+  
+  #login-buttons{
+    width: 520px;
+    margin: 30px auto;
+    padding: 10px;
+    
+    p{
+      margin:10px;
+      color: #666;
+      font-size: 11px;
+    }
+    
+  }
+  
+  #fb-login{
+    background: url('../images/login_fb_sprite.png') no-repeat;
+    width: 131px;
+    height: 49px;
+    margin: 0px auto;
+  }
+  #fb-login:hover{ background: url('../images/login_fb_sprite.png') no-repeat 1px -49px; cursor: pointer;}
+  #fb-login:active{ background: url('../images/login_fb_sprite.png') no-repeat 1px -99px;cursor: pointer;}
+  
+  #twitter-login{
+    background: url('../images/login_twitter_sprite.png') no-repeat;
+    width: 131px;
+    height: 49px;
+    float:right;
+  }
+  #twitter-login:hover{background: url('../images/login_twitter_sprite.png') no-repeat 1px -49px;cursor: pointer;}
+  #twitter-login:active{background: url('../images/login_twitter_sprite.png') no-repeat 1px -100px;cursor: pointer;}
+}
+
+// -------------------------------------------------------
+// MAP PAGE.
+// -------------------------------------------------------
+
+html{
+  height:100%;
+}
+
+body.map{
+  height: 100%;
+  
+  p{
+    font-size: 12px;
+  }
+  
+  p, h1, h2, h3,{
+    color: #333;
+  }
+  
+  p.online{
+    font-size: 10px;
+  }
+  
+  .wrap{
+     width: 270px;
+     word-wrap: break-word;
+     overflow: hidden;
+  }
+  
+  h1{
+    font-family: "Vinyl", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-size: 40px;
+  }
+  
+  h1.sirkel{
+    font-size: 100px;
+    color: #ffd842;
+    text-shadow: #422c06 0px 1px 0px;
+  }
+  
+  li.h3{
+    font-family: "Vinyl", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-size: 10px;
+  }
+  
+  li.p{
+    font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-size: 8px;
+    margin-bottom: 2px;
+  }
+  
+  #map_canvas {
+    height: 100%; 
+    background: #a5bfdd;}
+  
+  #logged-inout{
+    position: absolute;
+    top: -1000px;
+    left: 10px;
+  }
+  
+  #new-user-alert{
+   position: absolute;
+   top: 100px;
+   left: -10px;
+   width: 500px;
+   border: 10px solid red;
+   padding: 60px;
+    background: rgba(242,239,233,0.9);
+    @include round;
+    @include sirkel-box;
+    
+    h1{
+      text-transform: uppercase;
+      
+    }
+    
+    p{
+      font-size: 20px !important;
+      color: red;
+      margin: 20px;
+    }
+    
+  }
+  
+  #user_info{
+    background: rgba(242,239,233,0.8);
+    @include round;
+    @include sirkel-box;
+    padding: 10px;
+    width: 300px;
+    margin-bottom:15px;
+    
+    #user_image_container{
+      height: 100px;
+      float: left;
+      
+      
+      #user_image{
+        @include sirkel-box;
+        margin: 10px;
+      }
+    }
+    
+    p.hide{
+      font-family: "Vinyl", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+      @include round-bottom;
+      background: #fff;
+      width: 102%;
+      margin: 10px -9px -9px -9px;
+      padding: 5% 2% 2% 2%;
+      font-size: 10px;
+      cursor: pointer;
+    }
+    
+    h1{
+      margin-top: 10px;
+      margin-bottom: 5px;
+      @include shadow;
+      text-transform: uppercase;
+      font-size: 20px;
+    }
+
+  }
+  
+  p.show{
+    @include round-bottom;
+    @include sirkel-box;
+    position: absolute;
+    top:0px;
+    left:10px;
+    font-family: "Vinyl", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    background: #fff;
+    width: 300px;
+    height: 10px;
+    padding: 10px;
+    font-size: 10px;
+    cursor: pointer;
+  }
+  
+  #slider{
+    position:absolute;
+    top:10px;
+    right:10px;
+    display:block;
+    height: 95%;
+    margin: 3px;    
+  }
+  
+  #pusher{
+    @include round;
+    padding: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 300px;
+    height: 200px;
+    background: rgba(242,239,233,0.8);
+    
+  }
+  
+  #logo{
+    background: white;
+    position: absolute;
+    bottom: 3px;
+    left: 3px;
+    width: 200px;
+    height: 35px;
+    padding-left: 10px;
+    @include round;
+    @include sirkel-box;
+    
+      h2, h2 a:link, h2 a:visited, h2 a:active, h2 a:hover{
+        color: #ffb92e;
+        width: 75px;
+        text-shadow:  #fcf46a 1px 0px 0px, #7b5e24 2px 1px 0px, rgba(90, 90, 90, .2) 10px 10px 20px;
+        @include vinyl;
+        font-size: 30px;
+        text-decoration: none;
+        display:inline;
+        float:left;
+      }
+      
+      p{
+        font-size: 10px;
+        float:left;
+        display:inline;
+        padding: 0px 0px 0px 0px;
+        line-height: 15px;
+      }
+  }
+  
+  
+  // WEBKIT STYLED SCROLLBARS *************************************************************/
+  //@import "compass/css3";
+
+  ::-webkit-scrollbar {
+      width: 5px; }
+  ::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px #bc6f0f;;
+      border-radius: 3px; }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 0 1px #bc0000;
+    }
+  
+}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

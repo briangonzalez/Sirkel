@@ -1,0 +1,99 @@
+%body.map
+  #map_canvas
+  
+  // THE NEW USER ALERT
+  -if( !@new_user_alert )
+    #new-user-alert
+      %h1= "↑ Hey " + @user_name + ' ↑'
+      %p Welcome to Sirkel!
+      %p= "You have about 30 seconds to tell your browser that it's OK for us to track you. You should see a dialog box. Please do so now."
+      %p#close-new-user-alert= raw "#{link_to "Close", "#"}"
+  
+  // THE BOTTOM LEFT LOGO
+  #logo
+    %h2= raw "#{link_to "Sirkel", root_url, :target => "_blank"}"
+    %p= @tip
+    %p= link_to 'Log out now', logout_url
+    /%p= raw "#{mail_to "brian@gnzlz.com", 'Submit a bug to Sirkel'}"
+  
+  // THE SLIDER
+  #slider
+  - if(signed_in?)
+    .radius-size
+      %span#sirkel YOUR SIRKEL →
+      %h1.sirkel 3
+      %span#sirkel MILES
+
+  // THE ZOOM
+  #zoom-buttons
+    .zoom-in
+    .zoom-out
+  
+  // THE LOCATE & REVERT
+  #locate-button
+  #revert-button
+
+  // THE CHAT CONTAINER
+  .chat-container
+    .chatbox
+      .slidy
+        .header
+          .header-icon.icon
+        %h1#slidy-name ZACH G.
+        .status
+          %ul
+            %li.h3            LATITUDE
+            %li.p#latstat     -
+            %li.h3            LONGITUDE
+            %li.p#longstat    -
+            %li.h3            DISTANCE
+            %li.p#diststat    -
+
+        .close
+        .im-roller
+      .input-container
+        .send-button
+        %input{:type => "text", :class => "input", :name => "message", :maxlength => "140"}
+        
+      .pointy-icon.icon
+        .pointy
+        .new-message-indicator
+
+  // THE LOGGED IN/OUT
+  %p.show &darr; SHOW INFO
+  #logged-inout
+    - if(signed_in?)
+      #user_info
+        #user_image_container
+          %img{:src => @user_img_url, :id => 'user_image' , :alt => "User image"}
+        %h1= @user_name
+        - if @user_lat
+          %p= "Latitude: " + @user_lat.to_s()
+          %p= "Longitude: " + @user_lng.to_s()
+        %p= link_to 'Log out.', logout_url
+        %p.hide &uarr; HIDE INFO
+    - else
+      #user_info
+        %p= raw "Well, seems as if you're logged out <span style='font-size: 14px; line-height: 12px;'>☹</p></br>"
+        %p= raw "Please sign in #{link_to "here.", root_url}"
+
+
+
+// Javascripts at the bottom.
+= stylesheet_link_tag 'jquery-ui-1.8.14.custom.css'
+
+= javascript_include_tag 'http://js.pusherapp.com/1.8/pusher.min.js'
+= javascript_include_tag 'libs/jquery-ui-1.8.14.custom.min.js'
+= javascript_include_tag 'http://maps.google.com/maps/api/js?sensor=true'
+= javascript_include_tag 'libs/dragzoom.js'
+= javascript_include_tag 'libs/jquery.timeout.min.js'
+= javascript_include_tag 'map.pusher.js'
+
+= javascript_include_tag 'libs/infobox.js'
+= javascript_include_tag 'libs/locate.js'
+
+= javascript_include_tag 'map.script.js'
+= javascript_include_tag 'map.util.js'
+= javascript_include_tag 'libs/jquery.ui.touch-punch.min.js'
+= javascript_include_tag 'libs/heartbeat.js'
+= javascript_include_tag 'map.heartbeat.js'
