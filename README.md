@@ -4,4 +4,4 @@ Sirkel is a geolocation based chat application that won VMware's Flings Contest 
 
 Because it was built in 3 weeks, there are _bugs_, so please just use this as a (very)rough reference.
 
-### Visit at [sirkel.cloudfoundry.com](sirkel.cloudfoundry.com)
+### Visit [Sirkel](http://sirkel.cloudfoundry.com)
